@@ -1,0 +1,5 @@
+[2026-03-26 14:32:01] FATAL ERROR: Uncaught PDOException: SQLSTATE[HY000] [1045]
+Stack trace:
+#0 /var/www/html/index.php(4): require_once()
+#1 {main}
+    thrown in /var/www/html/index.php on line 12
