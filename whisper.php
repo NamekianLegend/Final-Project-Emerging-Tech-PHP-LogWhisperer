@@ -45,6 +45,14 @@ $data = [
     ]
 ];
 
+echo " \n";
+echo "\033[34m📨 Sending log content to OpenAI for analysis\033[0m\n";
+for ($i = 0; $i < 3; $i++) {
+    echo "\033[34m.\033[0m";
+    usleep(400000);
+}
+echo " \n\n";
+
 // Cyan — Log Content
 echo "\033[36m====================================================================\033[0m\n";
 echo "\033[36m📄 Log File Content:\033[0m\n";
