@@ -13,4 +13,5 @@ An AI-powered command-line tool that reads messy server error logs and outputs c
 2. Clone this repository.
 3. Create an .env file in project root folder.
 4. Add API key to the .env file. (Provided by one of the developers as requested.)
+5. Copy the php.ini file to C:\PHP\
 5. Run php whisper.php /path/to/logfile.log in your terminal. (Error/validation is implemented if no file path given or file path incorrect.)
