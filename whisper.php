@@ -1,41 +1,41 @@
-// whisper.php
-
 <?php
 
-echo "=====================================================\n";
-echo "🟢 SYSTEM STATUS: ONLINE\n";
-echo "🚀 Launching LogWhisperer\n";
+// 🎬 STARTUP BANNER — Bright Green
+echo "\033[92m=====================================================\033[0m\n";
+echo "\033[92m🟢 SYSTEM STATUS: ONLINE\033[0m\n";
+echo "\033[92m🚀 Launching LogWhisperer\033[0m\n";
+
 for ($i = 0; $i < 3; $i++) {
-    echo ".";
-    usleep(400000); // 0.4 seconds
+    echo "\033[92m.\033[0m";
+    usleep(400000);
 }
-echo "\n\n";
+echo "\n";
 
-echo "=====================================================\n\n";
+echo "\033[92m=====================================================\033[0m\n\n";
 
-// 1. Load the API Key safely from an environment variable that is found in the .env file
+// 1. Load API Key
 $env = parse_ini_file('.env');
 $apiKey = $env['OPENAI_API_KEY'] ?? '';
 
 if (empty($apiKey)) {
-    die('ERROR: API key not found. Please set it in the .env file.\n');
+    die('ERROR: API key not found. Please set it in the .env file.' . "\n");
 }
 
-// 2. Read the log file.
+// 2. Read log file
 $logFile = $argv[1] ?? null;
 
 if (!$logFile) {
-    die("⚠️ No log file provided. \nUsage: php whisper.php /path/to/logfile.log\n");
+    die("\033[33m⚠️ No log file provided.\nUsage: php whisper.php /path/to/logfile.log\033[0m\n");
 }
 
 if (!file_exists($logFile)) {
-    die("❌ Log file not found: $logFile\n");
+    die("\033[31m❌ Log file not found: $logFile\033[0m\n");
 }
 
 $logContent = file_get_contents($logFile);
-echo "✅ Log file loaded successfully. Reading: $logFile\n";
+echo "\033[32m✅ Log file loaded successfully. Reading: $logFile\033[0m\n";
 
-// 3. Prepare the AI Request (Setting up for function calling next week)
+// 3. Prepare AI request
 $apiUrl = 'https://api.openai.com/v1/chat/completions';
 $data = [
     'model' => 'gpt-4o-mini',
@@ -45,20 +45,19 @@ $data = [
     ]
 ];
 
-// Note for Progress Report: cURL connection established, ready to implement
-// strict JSON Function Calling in the next phase of development.
-echo "Setup complete. Ready for API transmission.\n";
-echo " \n";
+// Cyan — Log Content
+echo "\033[36m===================================================================\033[0m\n";
+echo "\033[36m📄 Log File Content:\033[0m\n";
+echo "\033[36m===================================================================\033[0m\n";
 
-// Print the data acquired from the log file to the terminal for the user
-echo "===================================================================\n";
-echo "📄 Log File Content:\n";
-echo "===================================================================\n";
-echo "🚨 ERROR DETECTED: \n";
-echo "\n";
-echo "⚠️ SEVERITY: \n";
-echo "====================================================================\n";
-echo "🔍 CAUSE: \n";
-echo "\n";
-echo "🛠️ SOLUTION: \n";
-echo "====================================================================\n";
+// Yellow — Error + Severity
+echo "\033[33m====================================================================\033[0m\n";
+echo "\033[33m🚨 ERROR DETECTED:\033[0m\n\n";
+echo "\033[33m⚠️ SEVERITY:\033[0m\n";
+echo "\033[33m====================================================================\033[0m\n";
+
+// Green — Cause + Solution
+echo "\033[32m====================================================================\033[0m\n";
+echo "\033[32m🔍 CAUSE:\033[0m\n\n";
+echo "\033[32m🛠️ SOLUTION:\033[0m\n";
+echo "\033[32m====================================================================\033[0m\n";
