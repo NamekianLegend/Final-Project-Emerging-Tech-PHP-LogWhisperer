@@ -26,3 +26,15 @@ $data = [
 // Note for Progress Report: cURL connection established, ready to implement
 // strict JSON Function Calling in the next phase of development.
 echo "Setup complete. Ready for API transmission.\n";
+echo " \n";
+
+// Print the data acquired from the log file to the terminal for the user
+echo "===================================================================\n";
+echo "📄 Log File Content:\n";
+echo "===================================================================\n";
+echo "🚨 ERROR DETECTED: \n";
+echo "⚠️ SEVERITY: \n";
+echo "====================================================================\n";
+echo "🔍 CAUSE: \n";
+echo "🛠️ SOLUTION: \n";
+echo "====================================================================\n";
