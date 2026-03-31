@@ -1,6 +1,18 @@
 // whisper.php
 
 <?php
+
+echo "=====================================================\n";
+echo "🟢 SYSTEM STATUS: ONLINE\n";
+echo "🚀 Launching LogWhisperer\n";
+for ($i = 0; $i < 3; $i++) {
+    echo ".";
+    usleep(400000); // 0.4 seconds
+}
+echo "\n\n";
+
+echo "=====================================================\n\n";
+
 // 1. Load the API Key safely from an environment variable that is found in the .env file
 $env = parse_ini_file('.env');
 $apiKey = $env['OPENAI_API_KEY'] ?? '';
@@ -10,8 +22,18 @@ if (empty($apiKey)) {
 }
 
 // 2. Read the log file.
-$logContent = file_get_contents(__DIR__ . '/data/test.log');
-echo "LogWhisperer Initialized. Reading test.log...\n";
+$logFile = $argv[1] ?? null;
+
+if (!$logFile) {
+    die("⚠️ No log file provided. \nUsage: php whisper.php /path/to/logfile.log\n");
+}
+
+if (!file_exists($logFile)) {
+    die("❌ Log file not found: $logFile\n");
+}
+
+$logContent = file_get_contents($logFile);
+echo "✅ Log file loaded successfully. Reading: $logFile\n";
 
 // 3. Prepare the AI Request (Setting up for function calling next week)
 $apiUrl = 'https://api.openai.com/v1/chat/completions';
@@ -33,8 +55,10 @@ echo "===================================================================\n";
 echo "📄 Log File Content:\n";
 echo "===================================================================\n";
 echo "🚨 ERROR DETECTED: \n";
+echo "\n";
 echo "⚠️ SEVERITY: \n";
 echo "====================================================================\n";
 echo "🔍 CAUSE: \n";
+echo "\n";
 echo "🛠️ SOLUTION: \n";
 echo "====================================================================\n";
