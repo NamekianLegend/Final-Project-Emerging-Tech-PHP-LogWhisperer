@@ -2,7 +2,7 @@
 // whisper.php
 require_once 'api_handler.php';
 
-// 🎬 STARTUP BANNER — Bright Green
+//STARTUP BANNER — Bright Green
 echo "\033[92m=====================================================\033[0m\n";
 echo "\033[92m🟢 SYSTEM STATUS: ONLINE\033[0m\n";
 echo "\033[92m🚀 Launching LogWhisperer\033[0m\n";
@@ -27,14 +27,17 @@ if (empty($apiKey)) {
 $logFile = $argv[1] ?? null;
 
 if (!$logFile) {
+    // Yellow — No log file provided
     die("\033[33m⚠️ No log file provided.\nUsage: php whisper.php /path/to/logfile.log\033[0m\n");
 }
 
 if (!file_exists($logFile)) {
+    // Red — Log file not found
     die("\033[31m❌ Log file not found: $logFile\033[0m\n");
 }
 
 $logContent = file_get_contents($logFile);
+// Green — Log file loaded
 echo "\033[32m✅ Log file loaded successfully. Reading: $logFile\033[0m\n";
 
 // 3. Prepare AI request
@@ -48,6 +51,7 @@ $data = [
 ];
 
 echo " \n";
+// Blue — Sending to Groq
 echo "\033[34m📨 Sending log content to Groq for analysis\033[0m\n";
 for ($i = 0; $i < 3; $i++) {
     echo "\033[34m.\033[0m";
