@@ -1,0 +1,27 @@
+[03-Apr-2026 09:12:01 UTC] PHP Notice:  Undefined index: username in /var/www/html/login.php on line 45
+[03-Apr-2026 09:12:01 UTC] PHP Notice:  Undefined index: password in /var/www/html/login.php on line 46
+[03-Apr-2026 09:15:33 UTC] PHP Warning:  mysqli_connect(): (HY000/1040): Too many connections in /var/www/html/db.php on line 12
+[03-Apr-2026 09:15:33 UTC] PHP Fatal error:  Uncaught Exception: Database connection failed. Please try again later. in /var/www/html/db.php:15
+Stack trace:
+#0 /var/www/html/models/User.php(22): require_once()
+#1 /var/www/html/controllers/AuthController.php(18): User::findByEmail('admin@example.c...')
+#2 /var/www/html/routes.php(55): AuthController->login()
+#3 /var/www/html/index.php(20): Router->dispatch()
+#4 {main}
+  thrown in /var/www/html/db.php on line 15
+[03-Apr-2026 10:05:12 UTC] PHP Deprecated:  Creation of dynamic property User::$is_logged_in is deprecated in /var/www/html/models/User.php on line 102
+[03-Apr-2026 10:42:05 UTC] PHP Warning:  file_get_contents(https://api.external-service.com/data): Failed to open stream: HTTP request failed! HTTP/1.1 503 Service Unavailable in /var/www/html/services/DataFetcher.php on line 34
+[03-Apr-2026 10:42:05 UTC] PHP Fatal error:  Uncaught TypeError: array_merge(): Argument #2 must be of type array, bool given in /var/www/html/services/DataFetcher.php:38
+Stack trace:
+#0 /var/www/html/services/DataFetcher.php(38): array_merge(Array, false)
+#1 /var/www/html/cron/sync.php(12): DataFetcher->syncAll()
+#2 {main}
+  thrown in /var/www/html/services/DataFetcher.php on line 38
+[03-Apr-2026 11:20:00 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ']' in /var/www/html/config/app.php on line 88
+[03-Apr-2026 11:25:10 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/config/app.php:88) in /var/www/html/includes/session.php on line 2
+[03-Apr-2026 12:01:45 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 104857600 bytes) in /var/www/html/reports/generate_pdf.php on line 210
+[03-Apr-2026 12:01:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function imagecreatefromjpeg() in /var/www/html/helpers/image_processor.php:15
+Stack trace:
+#0 /var/www/html/reports/generate_pdf.php(215): process_image_for_pdf('/tmp/upload_123...')
+#1 {main}
+  thrown in /var/www/html/helpers/image_processor.php on line 15
