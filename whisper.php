@@ -48,7 +48,7 @@ $data = [
 ];
 
 echo " \n";
-echo "\033[34m📨 Sending log content to OpenAI for analysis\033[0m\n";
+echo "\033[34m📨 Sending log content to Groq for analysis\033[0m\n";
 for ($i = 0; $i < 3; $i++) {
     echo "\033[34m.\033[0m";
     usleep(400000);
@@ -71,11 +71,6 @@ echo "\033[32m==================================================================
 echo "\033[32m🔍 CAUSE:\033[0m\n\n";
 echo "\033[32m🛠️ SOLUTION:\033[0m\n";
 echo "\033[32m====================================================================\033[0m\n";
-// Note for Progress Report: cURL connection established, ready to implement
-// strict JSON Function Calling in the next phase of development.
-
-
-echo "Setup complete. Sending to Groq...\n";
 
 $result = sendToGroq($apiUrl, $apiKey, $data);
 
