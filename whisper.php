@@ -3,7 +3,7 @@
 require_once 'api_handler.php';
 
 //STARTUP BANNER — Bright Green
-echo "\033[92m=====================================================\033[0m\n";
+echo "\033[92m====================================================================\033[0m\n";
 echo "\033[92m🟢 SYSTEM STATUS: ONLINE\033[0m\n";
 echo "\033[92m🚀 Launching LogWhisperer\033[0m\n";
 
@@ -13,7 +13,7 @@ for ($i = 0; $i < 3; $i++) {
 }
 echo "\n";
 
-echo "\033[92m=====================================================\033[0m\n\n";
+echo "\033[92m====================================================================\033[0m\n\n";
 
 // 1. Load API Key
 $env = parse_ini_file('.env');
@@ -103,7 +103,6 @@ echo "\033[32m🛠️ SOLUTION:\033[0m\n";
 echo wordwrap($aiSolution, 65, "\n") . "\n";
 echo "\033[32m====================================================================\033[0m\n\n";
 
-$result = sendToGroq($apiUrl, $apiKey, $data);
-
-echo "\n--- AI Summary ---\n";
-echo $result['choices'][0]['message']['content'] ?? 'No response. Error: ' . json_encode($result);
+echo "\033[90m====================================================================\033[0m\n";
+echo "\033[90m🔚 End of Report — LogWhisperer v1.0\033[0m\n";
+echo "\033[90m====================================================================\033[0m\n";
