@@ -1,17 +1,17 @@
-# LogWhisperer (PHP CLI + AI)
+# Project Documentation
 
-An AI-powered command-line tool that reads messy server error logs and outputs clean, categorized solutions using LLM Function Calling.
+## File Structure
+- `/src` - Contains all source files.
+- `/tests` - Contains test scripts and relevant materials.
+- `/docs` - Contains documentation files.
 
-# Team Members
-* Dawson Brown
-* Jeremy Paruch
-* Josh Leslie
-* Judah Csanyi
+## Features
+- Feature 1: Description of feature 1.
+- Feature 2: Description of feature 2.
+- Feature 3: Description of feature 3.
 
-# Setup Instructions (Development)
-1. Install PHP 8.x CLI.
-2. Clone this repository.
-3. Create an .env file in project root folder.
-4. Add API key to the .env file. (Provided by one of the developers as requested.)
-5. Copy the php.ini file to C:\PHP\
-5. Run php whisper.php /path/to/logfile.log in your terminal. (Error/validation is implemented if no file path given or file path incorrect.)
+## Directories
+- `/src/app` - Core application logic.
+- `/src/config` - Configuration files.
+- `/tests/unit` - Unit tests for the application.
+- `/tests/integration` - Integration tests.
